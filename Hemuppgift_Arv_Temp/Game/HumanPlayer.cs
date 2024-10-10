@@ -14,11 +14,11 @@ namespace Hemuppgift_Arv_Temp.Game
 
         }
 
-        //Metod för att plocka pinnar 
+        //Metod för att plocka stickor 
         public override int takePins(Board board)
         {
-            //Användaren anger antal pinnar att ta, spara i variabel taken
-            Console.WriteLine("Ange hur många pinnar du vill plocka: ");
+            //Användaren anger antal stickor att ta, spara i variabel taken
+            Console.WriteLine("Ange hur många stickor du vill plocka: ");
             int taken = Convert.ToInt32(Console.ReadLine());
 
             //Anropa metoden takePins från Player

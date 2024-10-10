@@ -16,12 +16,12 @@ namespace Hemuppgift_Arv_Temp.Game
 
         }
 
-        //Metod för att plocka pinnar 
+        //Metod för att plocka stickor 
         public override int takePins(Board board)
         {
-            //Skapa variabel som låter datorn välja 1-2 pinnar
+            //Skapa variabel som låter datorn välja 1-2 stickor
             int taken = random.Next(1, 3);
-            Console.WriteLine($"Datorn valde att ta {taken} pinnar");
+            Console.WriteLine($"Datorn valde att ta {taken} stickor");
 
             //Anropa metoden takePins från Player
             board.takePins(taken);

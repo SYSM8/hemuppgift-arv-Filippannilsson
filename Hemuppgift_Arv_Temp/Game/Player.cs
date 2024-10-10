@@ -23,7 +23,7 @@ namespace Hemuppgift_Arv_Temp.Game
             return userId;
         }
 
-        //Metod för att ta pinnar, måste implementeras av HumanPlayer och ComputerPlayer
+        //Metod för att ta stickor, måste implementeras av HumanPlayer och ComputerPlayer
         public abstract int takePins(Board board); 
         
     }

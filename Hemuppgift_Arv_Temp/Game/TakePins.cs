@@ -15,26 +15,43 @@
             //Skapa ett Board-objekt
             Board board1 = new Board();
 
+            //Skapa ett HumanPlayer-objekt och ett ComputerPlayer-objekt
+            HumanPlayer player1 = new HumanPlayer("Filippa");
+            ComputerPlayer computer = new ComputerPlayer("datorn");
+
+            //Skriv ut välkomstmeddelande
+            Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
+                $"går ut på att plocka upp den sista stickan från ett bord. Du får ta 1-2 stickor " +
+                $"varje gång, den som tar den sista stickan vinner.");
+
             //Starta spelet med 10 pinnar
             board1.setUp(10);
 
-            ////Testa att ta först 1 och sedan 2 pinnar
-            //board1.takePins(1);
-            //board1.takePins(2);
+            while (board1.getNoPins() > 0)
+            {
+                //Låt player1 spela en omgång
+                player1.takePins(board1);
 
-            ////Skriv ut antal pinnar som finns kvar
-            //Console.WriteLine($"Det finns {board1.getNoPins()} pinnar kvar på brädet");
+                //Meddelande om player1 vunnit spelet
+                if (board1.getNoPins() == 0)
+                {
+                    Console.WriteLine($"Spelet är slut, {player1.getUserId()} vann");
+                    break;
+                }
 
-            //Skapa ett HumanPlayer-objekt
-            HumanPlayer player1 = new HumanPlayer("Filippa");
+                //Låt computer spela en omgång
+                computer.takePins(board1);
 
-            //Skriv ut UserId
-            Console.WriteLine($"User-Id: {player1.getUserId()}");
+                //Meddelande om computer vunnit spelet
+                if (board1.getNoPins() == 0)
+                {
+                    Console.WriteLine($"Spelet är slut, {computer.getUserId()} vann");
+                    break;
+                }
 
-            //Låt player1 spela en omgång
-            player1.takePins(board1);
 
-           
+            }
+                       
         }
 
     }
