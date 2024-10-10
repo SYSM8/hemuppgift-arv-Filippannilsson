@@ -25,10 +25,16 @@
             ////Skriv ut antal pinnar som finns kvar
             //Console.WriteLine($"Det finns {board1.getNoPins()} pinnar kvar på brädet");
 
-
             //Skapa ett HumanPlayer-objekt
             HumanPlayer player1 = new HumanPlayer("Filippa");
+
+            //Skriv ut UserId
+            Console.WriteLine($"User-Id: {player1.getUserId()}");
+
+            //Låt player1 spela en omgång
             player1.takePins(board1);
+
+           
         }
 
     }

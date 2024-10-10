@@ -52,7 +52,6 @@ namespace Hemuppgift_Arv_Temp.Game
             {
                 //Skriv ut felmelmeddelande
                 Console.Write("Det finns inte så många pinnar på brädet");
-
             }
             else
             {

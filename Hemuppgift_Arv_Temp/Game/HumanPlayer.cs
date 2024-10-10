@@ -21,7 +21,7 @@ namespace Hemuppgift_Arv_Temp.Game
             Console.WriteLine("Ange hur många pinnar du vill plocka: ");
             int taken = Convert.ToInt32(Console.ReadLine());
 
-            //Anropa metoden takePins
+            //Anropa metoden takePins från Player
             board.takePins(taken);
             return taken;
         }
