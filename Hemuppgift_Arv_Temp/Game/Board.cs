@@ -12,48 +12,57 @@ namespace Hemuppgift_Arv_Temp.Game
 
         public int noPins { get; set; } //Antal pinnar
 
-        //Konstruktor - behövs detta??
-        public Board (int noPins)
-        {
-            this.noPins = noPins;
-        }
+        //Maxvärde på startPins
+        int Maxvalue = 50;
+
+        ////Konstruktor - behövs detta??
+        //public Board (int noPins)
+        //{
+        //    this.noPins = noPins;
+        //}
 
         //Metoder
 
         //Antalet pinnar som finns på brädet när spelet börjar
         public void setUp(int startPins)
         {
-            if (startPins >= 0)
+
+            //Om tillåtet antal pinnar vid start
+            if (startPins >= 0 && startPins <= Maxvalue)
             {
-                //Sätt antal pinnar till så många pinnar som finns från början
+                //Sätt antal pinnar till det antal som finns från början
                 noPins = startPins;
                 Console.WriteLine($"Antalet pinnar på brädet: {startPins}");
             }
             else
             {
                 //Skriv ut felmeddelande
-                Console.WriteLine("Antalet pinnar kan inte vara lägre än 0");
+                Console.WriteLine("Antalet pinnar måste vara mellan 0-50");
             }
         }
 
         //Metod för att ta ett visst antal pinnar från brädet
         public void takePins(int takenPins)
         {
-            if (takenPins > 0 && takenPins <= noPins)
+            //Om användaren väljer 1 eller 2 pinnar
+            if ((takenPins == 1 || takenPins == 2) && takenPins <= noPins)
             {
                 //Uppdatera antal pinnar
                 noPins = noPins - takenPins;
-                Console.WriteLine($"Du har tagit {takenPins} pinnar. Det finns {noPins} kvar på brädet.");
-            }
-            else if (takenPins <= 0)
-            {
-                //Skriv ut felmelmeddelande
-                Console.Write("Du måste välja 1 eller 2 pinnar");
 
+                //Skriv ut antal tagna pinnar och antal som finns kvar
+                Console.WriteLine($"Du har tagit {takenPins} pinnar. Det finns {noPins} kvar på brädet.");
             }
             else if (takenPins > noPins)
             {
-                Console.WriteLine("Det finns inte så många pinnar på bordet");
+                //Skriv ut felmelmeddelande
+                Console.Write("Det finns inte så många pinnar på brädet");
+
+            }
+            else
+            {
+                //Skriv ut felmeddelande
+                Console.WriteLine("Du får endast välja 1 eller 2 pinnar");
             }
         }
 
