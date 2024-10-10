@@ -1,6 +1,6 @@
-﻿namespace Hemuppgift_Arv_Temp
+﻿namespace Hemuppgift_Arv_Temp.Game
 {
-    internal class TakePins
+    public class TakePins
     {
         /* Frågor att svara på:
         1. Klassen Player är superklass till klasserna Humanplayer och ComputerPlayer.
@@ -12,7 +12,12 @@
         //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //Skapa ett Board-objekt
+            Board board1 = new Board(10);
+
+            board1.setUp(10);
+            board1.takePins(1);
+            board1.takePins(2);
         }
 
     }
