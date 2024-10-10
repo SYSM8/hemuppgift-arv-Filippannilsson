@@ -15,12 +15,7 @@ namespace Hemuppgift_Arv_Temp.Game
         //Maxvärde på startPins
         int Maxvalue = 50;
 
-        ////Konstruktor - behövs detta??
-        //public Board (int noPins)
-        //{
-        //    this.noPins = noPins;
-        //}
-
+        
         //Metoder
 
         //Antalet pinnar som finns på brädet när spelet börjar

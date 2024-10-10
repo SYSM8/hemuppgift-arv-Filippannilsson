@@ -18,12 +18,17 @@
             //Starta spelet med 10 pinnar
             board1.setUp(10);
 
-            //Testa att ta först 1 och sedan 2 pinnar
-            board1.takePins(1);
-            board1.takePins(2);
+            ////Testa att ta först 1 och sedan 2 pinnar
+            //board1.takePins(1);
+            //board1.takePins(2);
 
-            //Skriv ut antal pinnar som finns kvar
-            Console.WriteLine($"Det finns {board1.getNoPins()} pinnar kvar på brädet"); 
+            ////Skriv ut antal pinnar som finns kvar
+            //Console.WriteLine($"Det finns {board1.getNoPins()} pinnar kvar på brädet");
+
+
+            //Skapa ett HumanPlayer-objekt
+            HumanPlayer player1 = new HumanPlayer("Filippa");
+            player1.takePins(board1);
         }
 
     }
