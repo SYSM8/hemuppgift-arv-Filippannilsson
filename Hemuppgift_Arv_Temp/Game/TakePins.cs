@@ -17,7 +17,7 @@
 
             //Skapa ett HumanPlayer-objekt och ett ComputerPlayer-objekt
             HumanPlayer player1 = new HumanPlayer("Filippa");
-            ComputerPlayer computer = new ComputerPlayer("datorn");
+            ComputerPlayer computer = new ComputerPlayer("Computer");
 
             //Skriv ut välkomstmeddelande
             Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
@@ -35,7 +35,7 @@
                 //Meddelande om player1 vunnit spelet
                 if (board1.getNoPins() == 0)
                 {
-                    Console.WriteLine($"Spelet är slut, {player1.getUserId()} vann");
+                    Console.WriteLine("Grattis, du vann!");
                     break;
                 }
 
@@ -45,7 +45,7 @@
                 //Meddelande om computer vunnit spelet
                 if (board1.getNoPins() == 0)
                 {
-                    Console.WriteLine($"Spelet är slut, {computer.getUserId()} vann");
+                    Console.WriteLine("Spelet är slut, datorn vann");
                     break;
                 }
 

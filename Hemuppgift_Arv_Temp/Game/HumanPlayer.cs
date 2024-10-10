@@ -17,12 +17,42 @@ namespace Hemuppgift_Arv_Temp.Game
         //Metod för att plocka stickor 
         public override int takePins(Board board)
         {
-            //Användaren anger antal stickor att ta, spara i variabel taken
-            Console.WriteLine("Ange hur många stickor du vill plocka: ");
-            int taken = Convert.ToInt32(Console.ReadLine());
+            //Initialiserar variabel för antal stickor som plockats
+            int taken = 0;
+            //Variabel för att kontrollera giltig inmatning
+            bool validInput = false;
 
-            //Anropa metoden takePins från Player
-            board.takePins(taken);
+            //Loop som körs tills användaren matat in giltig siffra
+            while (!validInput)
+            {
+                try
+                {
+                    //Användaren anger antal stickor att ta, spara i variabel taken
+                    Console.WriteLine("Ange hur många stickor du vill plocka: ");
+                    taken = Convert.ToInt32(Console.ReadLine());
+
+                    if (taken < 1 || taken > 2)
+                    {
+                        Console.WriteLine("Du måste ange ett heltal, 1 eller 2");
+                    }
+                    else
+                    {
+                        //Anropa metoden takePins från Player
+                        board.takePins(taken);
+                        validInput = true; //Bryter loopen vid korrekt inmatning
+                    }
+
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Du måste ange ett heltal 1-2");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            
             return taken;
         }
     }
