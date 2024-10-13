@@ -10,47 +10,51 @@
         */
         static void Main(string[] args)
         {
-            //Skapa ett Board-objekt
-            Board board1 = new Board();
+            bool newGame = true;
 
-            //Skapa ett HumanPlayer-objekt
-            HumanPlayer player1 = new HumanPlayer("Filippa");
-
-            //Skapa ett Playerobjekt för datorn
-            Player computer = null;
-
-            //Skriv ut välkomstmeddelande
-            Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
-                $"går ut på att plocka upp den sista stickan från ett bord. Du får ta 1-2 stickor " +
-                $"varje gång, den som tar den sista stickan vinner.");
-
-            
-            bool validChoice = false;
-            // Loopar tills ett giltigt val görs
-            while (!validChoice)
+            while (newGame)
             {
-                // Be användaren att välja typ av dator
-                Console.WriteLine("Välj typ av dator:");
-                Console.WriteLine("1. Vanlig Dator");
-                Console.WriteLine("2. Smart Dator");
-                string datorVal = Console.ReadLine();
+                //Skapa ett Board-objekt
+                Board board1 = new Board();
 
-                // Skapa datorn baserat på användarens val
-                switch (datorVal)
+                //Skapa ett HumanPlayer-objekt
+                HumanPlayer player1 = new HumanPlayer("Filippa");
+
+                //Skapa ett Playerobjekt för datorn
+                Player computer = null;
+
+                //Skriv ut välkomstmeddelande
+                Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
+                    $"går ut på att plocka upp den sista stickan från ett bord. Du får ta 1-2 stickor " +
+                    $"varje gång, den som tar den sista stickan vinner.");
+
+
+                bool validChoice = false;
+                // Loopar tills ett giltigt val görs
+                while (!validChoice)
                 {
-                    case "1":
-                        computer = new ComputerPlayer("Computer");
-                        validChoice = true;
-                        break;
-                    case "2":
-                        computer = new SmartComputerPlayer("SmartComputer");
-                        validChoice = true;
-                        break;
-                    default:
-                        Console.WriteLine("Ogiltigt val, välj igen.");
-                        break;
+                    // Be användaren att välja typ av dator
+                    Console.WriteLine("Välj typ av dator:");
+                    Console.WriteLine("1. Vanlig Dator");
+                    Console.WriteLine("2. Smart Dator");
+                    string datorVal = Console.ReadLine();
+
+                    // Skapa datorn baserat på användarens val
+                    switch (datorVal)
+                    {
+                        case "1":
+                            computer = new ComputerPlayer("Computer");
+                            validChoice = true;
+                            break;
+                        case "2":
+                            computer = new SmartComputerPlayer("SmartComputer");
+                            validChoice = true;
+                            break;
+                        default:
+                            Console.WriteLine("Ogiltigt val, välj igen.");
+                            break;
+                    }
                 }
-            }
 
 
                 //Starta spelet med 10 pinnar
@@ -82,7 +86,17 @@
 
                 }
 
-            }
+                //Fråga användaren om ny spelomgång
+                Console.WriteLine("Vill du spela igen? Ja/Nej:");
+                string newGameAnswer = Console.ReadLine().ToLower();
 
+                if (newGameAnswer != "ja")
+                {
+                    newGame = false;
+                }
+            }
+            
         }
+
     }
+}
