@@ -33,14 +33,20 @@ namespace Hemuppgift_Arv_Temp.Game
                 taken = 1;
                 Console.WriteLine($"Datorn valde att ta {taken} stickor");
             }
+            //Om antal stickor inte kan delas med 3
+            else if (noPins % 3 != 0)
+            {
+                //Tar stickor för att lämna antal delbart med 3 och försämra motståndarens odds
+                taken = noPins % 3;
+                Console.WriteLine($"Datorn valde att ta {taken} stickor");
+            }
             else
             {
                 Random random = new Random();
 
-                //Skapa variabel som låter datorn välja 1-2 stickor
+                //Datorn väljer 1-2 stickor slumpmässigt
                 taken = random.Next(1, 3);
                 Console.WriteLine($"Datorn valde att ta {taken} stickor");
-
             }
 
             //Anropa metoden takePins från Player

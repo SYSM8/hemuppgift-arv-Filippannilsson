@@ -14,20 +14,15 @@
 
             while (newGame)
             {
-                //Skapa ett Board-objekt
+                //Skapa ett Board-objekt, HumanPlayer-objekt och Player-objekt för datorn
                 Board board1 = new Board();
-
-                //Skapa ett HumanPlayer-objekt
                 HumanPlayer player1 = new HumanPlayer("Filippa");
-
-                //Skapa ett Playerobjekt för datorn
                 Player computer = null;
 
                 //Skriv ut välkomstmeddelande
                 Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
                     $"går ut på att plocka upp den sista stickan från ett bord. Du får ta 1-2 stickor " +
                     $"varje gång, den som tar den sista stickan vinner.");
-
 
                 bool validChoice = false;
                 // Loopar tills ett giltigt val görs
@@ -56,7 +51,6 @@
                     }
                 }
 
-
                 //Starta spelet med 10 pinnar
                 board1.setUp(10);
 
@@ -75,15 +69,12 @@
                     //Låt computer spela en omgång
                     computer.takePins(board1);
 
-
                     //Meddelande om computer vunnit spelet
                     if (board1.getNoPins() == 0)
                     {
                         Console.WriteLine("Spelet är slut, datorn vann");
                         break;
                     }
-
-
                 }
 
                 //Fråga användaren om ny spelomgång
