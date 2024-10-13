@@ -46,7 +46,7 @@ namespace Hemuppgift_Arv_Temp.Game
                 noPins = noPins - takenPins;
 
                 //Skriv ut antal tagna stickor och antal som finns kvar
-                Console.WriteLine($"{takenPins} stickor är tagna. Det finns {noPins} kvar på brädet.");
+                Console.WriteLine($"Det finns {noPins} kvar på brädet.");
             }
             else if (takenPins > noPins)
             {

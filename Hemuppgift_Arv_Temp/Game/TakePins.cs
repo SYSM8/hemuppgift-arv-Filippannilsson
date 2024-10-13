@@ -8,51 +8,81 @@
             Player p = new HumanPlayer("Alicent");
             HumanPlayer p = new HumanPlayer("Rhaenyra");
         */
-
-        //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
             //Skapa ett Board-objekt
             Board board1 = new Board();
 
-            //Skapa ett HumanPlayer-objekt och ett ComputerPlayer-objekt
+            //Skapa ett HumanPlayer-objekt
             HumanPlayer player1 = new HumanPlayer("Filippa");
-            ComputerPlayer computer = new ComputerPlayer("Computer");
+
+            //Skapa ett Playerobjekt för datorn
+            Player computer = null;
 
             //Skriv ut välkomstmeddelande
             Console.WriteLine($"Välkommen {player1.getUserId()}! Du ska nu spela ett spel som " +
                 $"går ut på att plocka upp den sista stickan från ett bord. Du får ta 1-2 stickor " +
                 $"varje gång, den som tar den sista stickan vinner.");
 
-            //Starta spelet med 10 pinnar
-            board1.setUp(10);
-
-            while (board1.getNoPins() > 0)
+            
+            bool validChoice = false;
+            // Loopar tills ett giltigt val görs
+            while (!validChoice)
             {
-                //Låt player1 spela en omgång
-                player1.takePins(board1);
+                // Be användaren att välja typ av dator
+                Console.WriteLine("Välj typ av dator:");
+                Console.WriteLine("1. Vanlig Dator");
+                Console.WriteLine("2. Smart Dator");
+                string datorVal = Console.ReadLine();
 
-                //Meddelande om player1 vunnit spelet
-                if (board1.getNoPins() == 0)
+                // Skapa datorn baserat på användarens val
+                switch (datorVal)
                 {
-                    Console.WriteLine("Grattis, du vann!");
-                    break;
+                    case "1":
+                        computer = new ComputerPlayer("Computer");
+                        validChoice = true;
+                        break;
+                    case "2":
+                        computer = new SmartComputerPlayer("SmartComputer");
+                        validChoice = true;
+                        break;
+                    default:
+                        Console.WriteLine("Ogiltigt val, välj igen.");
+                        break;
                 }
+            }
 
-                //Låt computer spela en omgång
-                computer.takePins(board1);
 
-                //Meddelande om computer vunnit spelet
-                if (board1.getNoPins() == 0)
+                //Starta spelet med 10 pinnar
+                board1.setUp(10);
+
+                while (board1.getNoPins() > 0)
                 {
-                    Console.WriteLine("Spelet är slut, datorn vann");
-                    break;
-                }
+                    //Låt player1 spela en omgång
+                    player1.takePins(board1);
 
+                    //Meddelande om player1 vunnit spelet
+                    if (board1.getNoPins() == 0)
+                    {
+                        Console.WriteLine("Grattis, du vann!");
+                        break;
+                    }
+
+                    //Låt computer spela en omgång
+                    computer.takePins(board1);
+
+
+                    //Meddelande om computer vunnit spelet
+                    if (board1.getNoPins() == 0)
+                    {
+                        Console.WriteLine("Spelet är slut, datorn vann");
+                        break;
+                    }
+
+
+                }
 
             }
-                       
-        }
 
+        }
     }
-}

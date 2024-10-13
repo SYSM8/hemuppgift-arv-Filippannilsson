@@ -35,6 +35,11 @@ namespace Hemuppgift_Arv_Temp.Game
                     {
                         Console.WriteLine("Du måste ange ett heltal, 1 eller 2");
                     }
+                    else if (taken > board.getNoPins())
+                    {
+                        // Felmeddelande om de valt fler stickor än vad som finns kvar
+                        Console.WriteLine("Det finns inte så många stickor på brädet. Försök igen.");
+                    }
                     else
                     {
                         //Anropa metoden takePins från Player
